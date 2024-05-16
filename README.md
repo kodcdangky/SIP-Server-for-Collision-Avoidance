@@ -6,4 +6,4 @@ Project Manager: Aapo Vuokila
 
 Software Architect: Nam Hoang Nguyen
 
-Software Developers: David Felso, Froncisco Molina, Nicke Nordström
+Software Developers: Dávid Felső, Froncisco Molina, Nicke Nordström
