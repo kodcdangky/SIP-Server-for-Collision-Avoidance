@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<!--
+    NOTE: see Aapo's design in the design document.
+    Ignore the entire hamburger menu and username thing.
+    Main focus right now is getting the main page layout as designed
+
+    DO NOT change the 'id' attribute of elements as they are required for the js script to work
+    DO NOT change the 'src' attribute of 'script' element or the 'script' element itself
+    All elements are otherwise free to be changed if you find other elements that work better to achieve the desired design,
+    just make sure you restore the id attribute to where appropriate.
+
+    Stick with Bootstrap for css library, don't be bothered with other stuff you might come across
+
+    And ofc, ask if you need to, my knowledge with css is limited hence I'm pushing this off to you guys but I'll help where I can
+    Also read documentations, there are tons on top of tons of it, both for Bootstrap and for general css.
+    Mozilla's documentation is a very good source for all things webdev related, and w3school or geekforgeek are also solid ones,
+    as well as many others
+-->
+<html lang="en">
+
+    <head>
+        <meta name="viewport" content="initial-scale=1, width=device-width">
+        <title>Industrial Training Group 1 Project</title>
+        <script src="{{ distCalc }}"></script>
+    </head>
+
+    <body>
+        <table>
+            <!-- 'align' is deprecated, should use css. -->
+            <tr align="right">
+                <td>
+                    <label for="lat1">Latitude 1</label>
+                    <input type="number" id="lat1"><br>
+                </td>
+                <td>
+                    <label for="lat2">Latitude 2</label>
+                    <input type="number" id="lat2"><br>
+                </td>
+            </tr>
+            <tr align="right">
+                <td>
+                    <label for="lon1">Longitude 1</label>
+                    <input type="number" id="lon1"><br>
+                </td>
+                <td>
+                    <label for="lon2">Longitude 2</label>
+                    <input type="number" id="lon2"><br>
+                </td>
+            </tr>
+        </table>
+        <input type="button" value="Calculate" id="calcBtn"><br>
+
+        <!-- Where map will go -->
+        <div></div>
+
+        <!-- Calculation result -->
+        <div>
+            <p id="res"></p>
+        </div>
+    </body>
+
+</html>
