@@ -21,41 +21,52 @@
     <head>
         <meta name="viewport" content="initial-scale=1, width=device-width">
         <title>Industrial Training Group 1 Project</title>
-        <script src="{{ distCalc }}"></script>
+
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+        <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+
+        <!-- Not needed anymore as leaflet provides a distance function -->
+        <!-- <script src="{{ url_for('static', filename='js/haversine.js') }}"></script> -->
+        <script src="{{ url_for('static', filename='js/map.js') }}"></script>
     </head>
 
     <body>
-        <table>
-            <!-- 'align' is deprecated, should use css. -->
-            <tr align="right">
-                <td>
-                    <label for="lat1">Latitude 1</label>
-                    <input type="number" id="lat1"><br>
-                </td>
-                <td>
-                    <label for="lat2">Latitude 2</label>
-                    <input type="number" id="lat2"><br>
-                </td>
-            </tr>
-            <tr align="right">
-                <td>
-                    <label for="lon1">Longitude 1</label>
-                    <input type="number" id="lon1"><br>
-                </td>
-                <td>
-                    <label for="lon2">Longitude 2</label>
-                    <input type="number" id="lon2"><br>
-                </td>
-            </tr>
-        </table>
-        <input type="button" value="Calculate" id="calcBtn"><br>
+        <div id="coords-div" class="center">
+            <table id="coords" class="contains-text">
+                <tr>
+                    <td>
+                        <label for="lat1">Latitude 1</label>
+                        <input type="number" id="lat1" class="contains-text"><br>
+                    </td>
+                    <td rowspan="2">
+                        <input type="button" value="Calculate" id="calcBtn" class="contains-text"><br>
+                    </td>
+                    <td>
+                        <label for="lat2">Latitude 2</label>
+                        <input type="number" id="lat2" class="contains-text"><br>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="lng1">Longitude 1</label>
+                        <input type="number" id="lng1" class="contains-text"><br>
+                    </td>
+                    <td>
+                        <label for="lng2">Longitude 2</label>
+                        <input type="number" id="lng2" class="contains-text"><br>
+                    </td>
+                </tr>
+            </table>
+        </div>
 
-        <!-- Where map will go -->
-        <div></div>
+        <!-- Where map goes -->
+        <div id="map"></div>
 
         <!-- Calculation result -->
-        <div>
-            <p id="res"></p>
+        <div id="res-div" class="center">
+            <p id="res" class="contains-text"></p>
         </div>
     </body>
 

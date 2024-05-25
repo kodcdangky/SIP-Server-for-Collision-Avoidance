@@ -1,0 +1,31 @@
+.center {
+    margin: auto;
+}
+
+.contains-text {
+    font-size: large;
+}
+
+#map {
+    height: 70vh;
+    /* width: 100%; */
+}
+
+#coords-div {
+    padding: 10px;
+    width: 98%;
+}
+
+#coords {
+    width: 100%;
+    align-self: center;
+    text-align: center;
+}
+
+#res-div {
+    width: fit-content;
+}
+
+#res {
+    font-size: x-large;
+}
