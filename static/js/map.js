@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function () {
             (id) => document.getElementById(id).value
         )
         if (coords.some(isNotNumeric)) {
-            document.getElementById('res').innerHTML = "Invalid input"
+            document.getElementById('res').innerHTML = "INVALID INPUT!"
             return
         }
 
@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         markers = points.map(L.marker)
         markers.forEach((marker, i) => {
-            marker.bindPopup('Position ' + (i + 1))
+            marker.bindPopup('POSITION ' + (i + 1))
             marker.addTo(map)
         })
 
@@ -38,6 +38,6 @@ document.addEventListener('DOMContentLoaded', function () {
         const displayDist = (distInMeter > 1000 ? distInMeter / 1000 : distInMeter).toFixed(2)
         const unit = distInMeter > 1000 ? 'km' : 'm'
 
-        document.getElementById('res').innerHTML = `Distance between 2 points: ${displayDist} ${unit}`
+        document.getElementById('res').innerHTML = `DISTANCE BETWEEN THE LOCATIONS: ${displayDist} ${unit}`
     })
 })
