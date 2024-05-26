@@ -27,55 +27,46 @@
 
         <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
 
-        <!-- Not needed anymore as leaflet provides a distance function -->
-        <!-- <script src="{{ url_for('static', filename='js/haversine.js') }}"></script> -->
-        <script src="{{ url_for('static', filename='js/map.js') }}"></script>
-
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     </head>
 
     <body class="container-fluid text-center bg-primary-subtle">
-        
         <div id="coords-div" class="row">
             <table id="coords" class="contains-text">
                 <tr>
                     <td>
-                        <label for="location1"class="badge text-bg-primary text-wrap" style="width: 16rem;">LOCATION 1 INPUT:</label>
+                        <label for="location1" class="badge text-bg-primary text-wrap" style="width: 16rem;">LOCATION 1 INPUT:</label>
                         <!--<input type="number" id="lat1" class="contains-text"><br>-->
                     </td>
-                    
+
                     <td>
-                        <label for="location1"class="badge text-bg-primary text-wrap" style="width: 16rem;">LOCATION 2 INPUT:</label>
+                        <label for="location1" class="badge text-bg-primary text-wrap" style="width: 16rem;">LOCATION 2 INPUT:</label>
                         <!--<input type="number" id="lat1" class="contains-text"><br>-->
                     </td>
                     <td rowspan="3">
                         <input type="button" value="Calculate" id="calcBtn" class="contains-text"><br>
                     </td>
-                </tr>    
-                <tr>
-                    
-                    <td>
-                        <label for="lat1"class="badge text-bg-secondary text-wrap" style="width: 8rem;">LATITUDE</label>
-                        <input type="number" id="lat1" class="contains-text"><br>
-                    </td>
-                    
-                    <td>
-                        <label for="lat2"class="badge text-bg-secondary text-wrap" style="width: 8rem;">LATITUDE</label>
-                        <input type="number" id="lat2" class="contains-text"><br>
-                    </td>
-                    
                 </tr>
                 <tr>
-                    
                     <td>
-                        <label for="lng1"class="badge text-bg-secondary text-wrap" style="width: 8rem;">LONGITUDE</label>
+                        <label for="lat1" class="badge text-bg-secondary text-wrap" style="width: 8rem;">LATITUDE</label>
+                        <input type="number" id="lat1" class="contains-text"><br>
+                    </td>
+
+                    <td>
+                        <label for="lat2" class="badge text-bg-secondary text-wrap" style="width: 8rem;">LATITUDE</label>
+                        <input type="number" id="lat2" class="contains-text"><br>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="lng1" class="badge text-bg-secondary text-wrap" style="width: 8rem;">LONGITUDE</label>
                         <input type="number" id="lng1" class="contains-text"><br>
                     </td>
                     <td>
-                        <label for="lng2"class="badge text-bg-secondary text-wrap" style="width: 8rem;">LONGITUDE</label>
+                        <label for="lng2" class="badge text-bg-secondary text-wrap" style="width: 8rem;">LONGITUDE</label>
                         <input type="number" id="lng2" class="contains-text"><br>
                     </td>
-                    
                 </tr>
 
             </table>
@@ -88,6 +79,9 @@
         <div class="row">
             <p id="res" rowspan="2" class="badge text-bg-warning text-wrap"></p>
         </div>
+
+        <script src="{{ url_for('static', filename='js/map.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/coord-tab.js') }}"></script>
     </body>
 
 </html>

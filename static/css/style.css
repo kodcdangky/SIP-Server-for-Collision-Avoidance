@@ -7,10 +7,7 @@
 }
 
 #map {
-    
     height: 75vh;
-    
-    
 }
 
 #coords-div {
@@ -20,12 +17,6 @@
 
 #coords {
     width: 100%;
-    align-self: center;
-    text-align: center;
-}
-
-#res-div {
-    width: fit-content;
     align-self: center;
     text-align: center;
 }
