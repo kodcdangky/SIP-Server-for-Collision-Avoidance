@@ -1,5 +1,6 @@
 const map = L.map('map', { zoomSnap: 0.5, zoomDelta: 0.5 }).setView([60.18575, 24.82730], 15); // Undergrad coords
 const cycle = ['lat1', 'lng1', 'lat2', 'lng2']
+const resField = document.getElementById('res')
 let points = []
 let markers = []
 
@@ -8,11 +9,20 @@ function calculateAndDisplay() {
         return (isNaN(str) || isNaN(parseFloat(str)))
     }
 
+    function isInvalidCoords(coords) {
+        function between(x, min, max) { return x >= min && x <= max }
+
+        return (!between(coords[0], -90, 90) || !between(coords[2], -90, 90
+            || !between(coords[1], -180, 180) || !between(coords[3], -180, 180)))
+    }
+
     const coords = cycle.map(
         (id) => document.getElementById(id).value
     )
-    if (coords.some(isNotNumeric)) {
-        document.getElementById('res').innerHTML = "INVALID INPUT!"
+    if (coords.some(isNotNumeric) || isInvalidCoords(coords)) {
+        if (resField.classList.contains('text-bg-success')) resField.classList.remove('text-bg-success')
+        if (!resField.classList.contains('text-bg-danger')) resField.classList.add('text-bg-danger')
+        resField.innerHTML = "INVALID INPUT!"
         return
     }
 
@@ -31,7 +41,9 @@ function calculateAndDisplay() {
     const displayDist = (distInMeter > 1000 ? distInMeter / 1000 : distInMeter).toFixed(2)
     const unit = distInMeter > 1000 ? 'km' : 'm'
 
-    document.getElementById('res').innerHTML = `DISTANCE BETWEEN THE LOCATIONS: ${displayDist} ${unit}`
+    if (resField.classList.contains('text-bg-danger')) resField.classList.remove('text-bg-danger')
+    if (!resField.classList.contains('text-bg-success')) resField.classList.add('text-bg-success')
+    resField.innerHTML = `DISTANCE BETWEEN THE LOCATIONS: ${displayDist} ${unit}`
 }
 
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
