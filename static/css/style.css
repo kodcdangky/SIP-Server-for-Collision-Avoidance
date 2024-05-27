@@ -1,0 +1,29 @@
+.center {
+    margin: auto;
+}
+
+.contains-text {
+    font-size: x-large;
+}
+
+#map {
+    height: 75vh;
+}
+
+#coords-div {
+    padding: 10px;
+    width: 98%;
+}
+
+#coords {
+    width: 100%;
+    align-self: center;
+    text-align: center;
+}
+
+#res {
+    width: 100%;
+    font-size: x-large;
+    align-self: center;
+    text-align: center;
+}
