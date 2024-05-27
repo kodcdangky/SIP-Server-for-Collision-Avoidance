@@ -20,29 +20,28 @@ function calculateAndDisplay() {
         (id) => document.getElementById(id).value
     )
     if (coords.some(isNotNumeric) || isInvalidCoords(coords)) {
-        if (resField.classList.contains('text-bg-success')) resField.classList.remove('text-bg-success')
-        if (!resField.classList.contains('text-bg-danger')) resField.classList.add('text-bg-danger')
+        resField.classList.remove('text-bg-success')
+        resField.classList.add('text-bg-danger')
         resField.innerHTML = "INVALID INPUT!"
         return
     }
 
-    // Remove old markers, if there's any
-    markers.forEach((marker) => marker.remove())
-
     points = [L.latLng(coords.slice(0, 2)), L.latLng(coords.slice(2))]
 
+    markers.forEach((marker) => marker.remove())
     markers = points.map(L.marker)
     markers.forEach((marker, i) => {
         marker.bindPopup('POSITION ' + (i + 1)).addTo(map)
     })
 
-    map.flyToBounds(L.latLngBounds(points).pad(0.02))
+    map.flyToBounds(L.latLngBounds(points).pad(0.02), { duration: 2, easeLinearity: 0 })
+
     const distInMeter = map.distance(points[0], points[1])
     const displayDist = (distInMeter > 1000 ? distInMeter / 1000 : distInMeter).toFixed(2)
     const unit = distInMeter > 1000 ? 'km' : 'm'
 
-    if (resField.classList.contains('text-bg-danger')) resField.classList.remove('text-bg-danger')
-    if (!resField.classList.contains('text-bg-success')) resField.classList.add('text-bg-success')
+    resField.classList.remove('text-bg-danger')
+    resField.classList.add('text-bg-success')
     resField.innerHTML = `DISTANCE BETWEEN THE LOCATIONS: ${displayDist} ${unit}`
 }
 
