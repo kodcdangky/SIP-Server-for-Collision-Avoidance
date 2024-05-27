@@ -36,7 +36,7 @@ function calculateAndDisplay() {
         marker.bindPopup('POSITION ' + (i + 1)).addTo(map)
     })
 
-    map.fitBounds(L.latLngBounds(points).pad(0.02))
+    map.flyToBounds(L.latLngBounds(points).pad(0.02))
     const distInMeter = map.distance(points[0], points[1])
     const displayDist = (distInMeter > 1000 ? distInMeter / 1000 : distInMeter).toFixed(2)
     const unit = distInMeter > 1000 ? 'km' : 'm'
